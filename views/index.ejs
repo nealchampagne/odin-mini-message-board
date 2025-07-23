@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <link rel='stylesheet' href='/style.css'>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <div class='messageboard'>
+      <% for (let i = 0; i < messages.length; i++) { %>
+        <div class='messagecard'>
+          <h3><%= messages[i].text %></h3>
+          <p>-<%= messages[i].user %></p>
+          <a href=<%= `/messages/${i}`%>>
+            <span>Open</span>
+          </a>
+        </div>
+      <% } %>
+    </div>
+    <a href="/new">
+      <span>New Message</span>
+    </a>
+  </body>
+</html>
