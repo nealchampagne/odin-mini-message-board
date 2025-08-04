@@ -5,17 +5,21 @@
   </head>
   <body>
     <div class='messageboard'>
-      <% for (let i = 0; i < messages.length; i++) { %>
-        <div class='messagecard'>
-          <h3><%= messages[i].text %></h3>
-          <p>-<%= messages[i].user %></p>
-          <a href=<%= `/messages/${i}`%>>
-            <span>Open</span>
-          </a>
-        </div>
-      <% } %>
+      <ul>
+        <% messages.forEach(message => { %>
+          <li>
+            <strong><%= message.username %></strong>: <br>"<%= message.content %>"
+          </li>
+          <form action="/<%= message.id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete</button>
+          </form>
+          <form action="/<%= message.id %>/edit" method="GET">
+            <button type="submit">Update</button>
+          </form>
+        <% }) %>
+      </ul>
     </div>
-    <a href="/new">
+    <a href='/new'>
       <span>New Message</span>
     </a>
   </body>

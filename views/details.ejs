@@ -6,11 +6,11 @@
   <body>
     <h1>Message Details:</h1>
     <h3>User:</h3>
-    <p><%= message.user %></p>
+    <p><%= message.username %></p>
     <h3>Message:</h3>
-    <p><%= message.text %></p>
+    <p><%= message.content %></p>
     <h4>Added:</h4>
-    <p><%= message.added %></p>
+    <p><%= new Date(message.timestamp).toLocaleString() %></p>
     <a href='/'>Home</a>
   </body>
 </html>

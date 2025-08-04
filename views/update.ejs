@@ -1,0 +1,8 @@
+<h1>Edit Message</h1>
+<%- include('_form', {
+  formAction: `/${message.id}/edit`,
+  userList: users,
+  message,
+  isEdit: true
+}) %>
+<a href="/">Home</a>
