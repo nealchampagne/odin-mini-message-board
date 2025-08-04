@@ -3,6 +3,10 @@ const path = require('node:path');
 require('dotenv').config();
 const app = express();
 const methodOverride = require('method-override');
+const fs = require('node:fs');
+
+const caCertPath = path.join(__dirname, 'temp-ca.pem');
+fs.writeFileSync(caCertPath, process.env.CA_CERT);
 
 // This tells Express to look for a query param like ?_method=DELETE
 app.use(methodOverride('_method'));
